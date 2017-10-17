@@ -11,9 +11,9 @@ export default class ToDoList extends Component {
   render() {
     console.log(this.props, 'props ToDoList')
     return (
-      <ScrollView>
+      <View>
           <Text>{this.props.todo.text} {JSON.stringify(this.props.todo.completed)}</Text>
-      </ScrollView>
+      </View>
     );
   }
 }

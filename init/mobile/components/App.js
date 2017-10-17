@@ -6,8 +6,10 @@
 
 import React, { Component } from 'react';
 import { createStore } from 'redux';
-import ToDoList from "./toDoListEntries"
-
+import ToDoList from "./toDoListEntries";
+import { Tabs } from "../config/router.js";
+import { connect } from 'react-redux';
+ import store from '../store.js';
 import {
   StyleSheet,
   Text,
@@ -15,16 +17,13 @@ import {
   TextInput,
   TouchableHighlight
 } from 'react-native';
- import { connect } from 'react-redux';
- import store from '../store.js'
+ 
 
-// @connect((store)=>{
 
-// })
 class App extends Component {
 
   handleSubmit(text){
-    //console.log(text.target.val, 'press')
+
     let todo = text.nativeEvent.text
     console.log(todo,'submit')
     this.props.addToDo(todo)
@@ -34,16 +33,18 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+      
         <Text style={styles.welcome}>
           To Do List
         </Text>
           <TextInput
-          style={{height: 40}}
+          style={{height: 20}}
           placeholder="Type to do here"
           onChangeText={(text) => console.log(text)}
           onSubmitEditing={this.handleSubmit.bind(this)}
         />
         {this.props.todo.map((todo, i)=>{return <ToDoList todo={todo} key={i}/> })}
+        <Tabs style={{flex: 4, backgroundColor: 'yellow'}}/> 
       </View>
     );
   }
@@ -54,12 +55,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'skyblue',
   },
   welcome: {
     fontSize: 20,
+    width: 400,
     textAlign: 'center',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
     margin: 10,
+    backgroundColor: 'pink'
   },
   instructions: {
     textAlign: 'center',
