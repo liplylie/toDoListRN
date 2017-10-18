@@ -3,12 +3,12 @@ import {View, Text } from 'react-native'
 
 export default class Hello extends Component {
 	static navigationOptions = {
-		tabBarLabel: 'Tab1'
+		tabBarLabel: 'Hello'
 	}
 	render(){
 		return (
-			<View>
-				<Text> Hello Page </Text>
+			<View style={{flex:1}}>
+				<Text style={{textAlign: 'center', margin: 10}}> Hello Page </Text>
 			</View>
 		)
 	}

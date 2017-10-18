@@ -1,10 +1,12 @@
 import React from 'react'
 import { TabNavigator } from 'react-navigation'
 
-import Hello from '../screens/hello.js'
+import Hello from '../components/hello.js'
+import ToDoScreen from '../components/toDo.js'
 
 export const Tabs = TabNavigator({
-	Tab1: {screen: Hello}
+	ToDo: {screen: ToDoScreen},
+	Test: {screen: Hello}
 }, {
 	tabBarPosition: 'bottom',
 	tabBarOptions: {
